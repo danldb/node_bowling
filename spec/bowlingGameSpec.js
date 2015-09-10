@@ -1,6 +1,7 @@
 describe('Bowling Card', function(){
   var BowlingGame = require('../src/bowlingGame');
   var game;
+
   beforeEach(function(){
     game = new BowlingGame(); 
   });
@@ -15,18 +16,24 @@ describe('Bowling Card', function(){
   it('scores 20 for a game of all ones', function() {
     var rolls = 20;
     var pins = 1;
-    game = new BowlingGame();
     rollMany(rolls, pins);
     expect(game.score()).toEqual(20);
   });
 
   it('scores a single spare', function() {
-    game = new BowlingGame();
     rollSpare();
     game.roll(3);
     rollMany(17,0);
     expect(game.score()).toEqual(16);
   });
+
+  it('scores a strike', function() {
+    game.roll(10);
+    game.roll(3);
+    game.roll(4);
+    rollMany(16,0);
+    expect(game.score()).toEqual(24);
+  })
 
   function rollMany(rolls, pins) {
     for(var i = 0; i < rolls; i++){

@@ -22,8 +22,7 @@ describe('Bowling Card', function(){
 
   it('scores a single spare', function() {
     game = new BowlingGame();
-    game.roll(5);
-    game.roll(5);
+    rollSpare();
     game.roll(3);
     rollMany(17,0);
     expect(game.score()).toEqual(16);
@@ -33,5 +32,10 @@ describe('Bowling Card', function(){
     for(var i = 0; i < rolls; i++){
       game.roll(pins);
     };  
+  };
+
+  function rollSpare() {
+    game.roll(5);
+    game.roll(5);
   };
 });

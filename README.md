@@ -1,2 +1,2 @@
 # node_bowling
-Translation of uncle bob's bowlign kata into NodeJS.
+Translation of [uncle bob's bowling kata](http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata) into NodeJS.

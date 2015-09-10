@@ -28,12 +28,17 @@ describe('Bowling Card', function(){
   });
 
   it('scores a strike', function() {
-    game.roll(10);
+    rollStrike();
     game.roll(3);
     game.roll(4);
     rollMany(16,0);
     expect(game.score()).toEqual(24);
   })
+
+  it('perfect game', function (){
+    rollMany(12,10);
+    expect(game.score()).toEqual(300);
+  });
 
   function rollMany(rolls, pins) {
     for(var i = 0; i < rolls; i++){
@@ -45,4 +50,8 @@ describe('Bowling Card', function(){
     game.roll(5);
     game.roll(5);
   };
+
+  function rollStrike() {
+    game.roll(10);
+  }
 });

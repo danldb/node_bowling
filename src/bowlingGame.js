@@ -12,7 +12,7 @@ BowlingGame.prototype.score = function() {
   var score = 0;
   var frameIndex = 0;
   for (var frame = 0; frame < 10; frame++){
-    if (this.rolls[frameIndex] === 10){
+    if (this.isStrike(frameIndex)){
       score += 10 + 
         this.rolls[frameIndex + 1] +
         this.rolls[frameIndex + 2];
@@ -31,4 +31,8 @@ BowlingGame.prototype.score = function() {
 BowlingGame.prototype.isSpare = function (frameIndex){
   return this.rolls[frameIndex] + this.rolls[frameIndex + 1] === 10;
 };
+
+BowlingGame.prototype.isStrike = function (frameIndex){
+  return this.rolls[frameIndex] === 10;
+}
 module.exports = BowlingGame;
